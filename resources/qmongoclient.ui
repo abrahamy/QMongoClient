@@ -1,0 +1,704 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>QMongoClient</class>
+ <widget class="QMainWindow" name="QMongoClient">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>875</width>
+    <height>592</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>QMongoClient</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="Images/resources.qrc">
+    <normaloff>:/Images/mongodb-logo.png</normaloff>:/Images/mongodb-logo.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QStackedWidget" name="stackedWidgetContentPane">
+      <property name="minimumSize">
+       <size>
+        <width>520</width>
+        <height>0</height>
+       </size>
+      </property>
+      <widget class="QWidget" name="defaultPage">
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <widget class="QTabWidget" name="tabWidget">
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <widget class="QWidget" name="tabTreeView">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(87, 170, 170);</string>
+           </property>
+           <attribute name="title">
+            <string>Tree View</string>
+           </attribute>
+           <layout class="QHBoxLayout" name="horizontalLayout_4">
+            <item>
+             <widget class="QTreeView" name="treeView">
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(255, 255, 255);</string>
+              </property>
+              <property name="editTriggers">
+               <set>QAbstractItemView::NoEditTriggers</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tabTableView">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(255, 213, 192);</string>
+           </property>
+           <attribute name="title">
+            <string>Table View</string>
+           </attribute>
+           <layout class="QHBoxLayout" name="horizontalLayout_5">
+            <item>
+             <widget class="QTableWidget" name="tableWidget">
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(255, 255, 255);</string>
+              </property>
+              <property name="editTriggers">
+               <set>QAbstractItemView::NoEditTriggers</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tabTextView">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(255, 169, 225);</string>
+           </property>
+           <attribute name="title">
+            <string>Text View</string>
+           </attribute>
+           <layout class="QHBoxLayout" name="horizontalLayout_7">
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_2">
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_6">
+                <item>
+                 <widget class="QLabel" name="label">
+                  <property name="text">
+                   <string>Json Text of Resulting Documents:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>208</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="pushButton">
+                  <property name="font">
+                   <font>
+                    <underline>true</underline>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">color: rgb(0, 85, 255);</string>
+                  </property>
+                  <property name="text">
+                   <string>Open in Native Editor</string>
+                  </property>
+                  <property name="flat">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <widget class="QTextEdit" name="textEdit">
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_2"/>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>875</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_File">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <addaction name="actionFileConnect"/>
+    <addaction name="separator"/>
+    <addaction name="actionFileExit"/>
+   </widget>
+   <widget class="QMenu" name="menu_Server">
+    <property name="title">
+     <string>&amp;Server</string>
+    </property>
+    <addaction name="actionServerOverview"/>
+    <addaction name="separator"/>
+    <addaction name="actionServerAddDatabase"/>
+    <addaction name="separator"/>
+    <addaction name="actionServerDisconnect"/>
+    <addaction name="actionServerStatus"/>
+   </widget>
+   <widget class="QMenu" name="menu_Database">
+    <property name="title">
+     <string>&amp;Database</string>
+    </property>
+    <widget class="QMenu" name="menuImport">
+     <property name="title">
+      <string>Import</string>
+     </property>
+     <addaction name="actionDBImportFromMySQL"/>
+     <addaction name="actionDBImportFromMicrosoftSQLServer"/>
+     <addaction name="actionDBImportFromPostgreSQL"/>
+    </widget>
+    <addaction name="actionDBOverview"/>
+    <addaction name="actionDBProfilingLevel"/>
+    <addaction name="separator"/>
+    <addaction name="actionDBAddCollection"/>
+    <addaction name="actionDBAddStoredJavaScript"/>
+    <addaction name="separator"/>
+    <addaction name="menuImport"/>
+    <addaction name="actionDBCopyCollectionsToDifferentServer"/>
+    <addaction name="separator"/>
+    <addaction name="actionDBDrop"/>
+    <addaction name="actionDBStats"/>
+   </widget>
+   <widget class="QMenu" name="menu_Collection">
+    <property name="title">
+     <string>&amp;Collection</string>
+    </property>
+    <addaction name="actionCollectionView"/>
+    <addaction name="actionCollectionFind"/>
+    <addaction name="actionCollectionFind2"/>
+    <addaction name="actionCollectionUpdate"/>
+    <addaction name="actionCollectionRemove"/>
+    <addaction name="actionCollectionGroup"/>
+    <addaction name="actionCollectionMapReduce"/>
+    <addaction name="separator"/>
+    <addaction name="actionCollectionInsertDocument"/>
+    <addaction name="actionCollectionAddIndex"/>
+    <addaction name="actionCollectionCompact"/>
+    <addaction name="separator"/>
+    <addaction name="actionCollectionDuplicate"/>
+    <addaction name="actionCollectionCopyToDifferentServer"/>
+    <addaction name="separator"/>
+    <addaction name="actionCollectionRemoveAll"/>
+    <addaction name="actionCollectionDrop"/>
+    <addaction name="actionCollectionStats"/>
+   </widget>
+   <widget class="QMenu" name="menu_Index">
+    <property name="title">
+     <string>&amp;Index</string>
+    </property>
+    <addaction name="actionIndexDrop"/>
+    <addaction name="actionIndexProperties"/>
+   </widget>
+   <widget class="QMenu" name="menu_Tools">
+    <property name="title">
+     <string>&amp;Tools</string>
+    </property>
+    <addaction name="actionToolsServerMonitoring"/>
+    <addaction name="separator"/>
+    <addaction name="actionToolsPreferences"/>
+   </widget>
+   <widget class="QMenu" name="menu_JavaScript">
+    <property name="title">
+     <string>&amp;JavaScript</string>
+    </property>
+    <addaction name="actionJavaScriptEdit"/>
+    <addaction name="actionJavaScriptDrop"/>
+   </widget>
+   <widget class="QMenu" name="menu_Windows">
+    <property name="title">
+     <string>&amp;Windows</string>
+    </property>
+    <addaction name="actionWindowsClose"/>
+    <addaction name="actionWindowsCloseAll"/>
+   </widget>
+   <widget class="QMenu" name="menu_Help">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="actionHelpAbout"/>
+   </widget>
+   <addaction name="menu_File"/>
+   <addaction name="menu_Server"/>
+   <addaction name="menu_Database"/>
+   <addaction name="menu_Collection"/>
+   <addaction name="menu_Index"/>
+   <addaction name="menu_JavaScript"/>
+   <addaction name="menu_Tools"/>
+   <addaction name="menu_Windows"/>
+   <addaction name="menu_Help"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::TopToolBarArea</set>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextBesideIcon</enum>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionOpen"/>
+   <addaction name="actionSave"/>
+   <addaction name="actionSaveAs"/>
+   <addaction name="separator"/>
+   <addaction name="actionCollectionView"/>
+   <addaction name="actionCollectionFind"/>
+   <addaction name="actionCollectionFind2"/>
+   <addaction name="actionCollectionUpdate"/>
+   <addaction name="actionCollectionRemove"/>
+   <addaction name="actionCollectionMapReduce"/>
+   <addaction name="separator"/>
+   <addaction name="actionJavaScript"/>
+  </widget>
+  <widget class="QDockWidget" name="dockWidgetDBExplorer">
+   <property name="minimumSize">
+    <size>
+     <width>220</width>
+     <height>359</height>
+    </size>
+   </property>
+   <property name="features">
+    <set>QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable</set>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea</set>
+   </property>
+   <property name="windowTitle">
+    <string>Database Explorer</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_4">
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QTreeWidget" name="treeWidget">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>320</height>
+        </size>
+       </property>
+       <property name="editTriggers">
+        <set>QAbstractItemView::NoEditTriggers</set>
+       </property>
+       <column>
+        <property name="text">
+         <string>Connect</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Refresh</string>
+        </property>
+       </column>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="dockWidgetShellView">
+   <property name="minimumSize">
+    <size>
+     <width>88</width>
+     <height>120</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>524287</width>
+     <height>120</height>
+    </size>
+   </property>
+   <property name="features">
+    <set>QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable</set>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::BottomDockWidgetArea</set>
+   </property>
+   <property name="windowTitle">
+    <string>Learn Shell</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>8</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_5">
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QTextEdit" name="textEditShellCommands">
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <action name="actionFileConnect">
+   <property name="text">
+    <string>Connect</string>
+   </property>
+  </action>
+  <action name="actionFileExit">
+   <property name="icon">
+    <iconset resource="Images/resources.qrc">
+     <normaloff>:/Images/quit.png</normaloff>:/Images/quit.png</iconset>
+   </property>
+   <property name="text">
+    <string>E&amp;xit</string>
+   </property>
+  </action>
+  <action name="actionServerOverview">
+   <property name="text">
+    <string>Overview</string>
+   </property>
+  </action>
+  <action name="actionServerAddDatabase">
+   <property name="text">
+    <string>Add Database...</string>
+   </property>
+  </action>
+  <action name="actionServerDisconnect">
+   <property name="text">
+    <string>Disconnect</string>
+   </property>
+  </action>
+  <action name="actionServerStatus">
+   <property name="text">
+    <string>Status</string>
+   </property>
+  </action>
+  <action name="actionDBOverview">
+   <property name="text">
+    <string>Overview</string>
+   </property>
+  </action>
+  <action name="actionDBProfilingLevel">
+   <property name="text">
+    <string>Profiling Level</string>
+   </property>
+  </action>
+  <action name="actionDBAddCollection">
+   <property name="text">
+    <string>Add Collection...</string>
+   </property>
+  </action>
+  <action name="actionDBAddStoredJavaScript">
+   <property name="text">
+    <string>Add Stored JavaScript...</string>
+   </property>
+  </action>
+  <action name="actionDBImportFromMySQL">
+   <property name="text">
+    <string>From MySQL</string>
+   </property>
+  </action>
+  <action name="actionDBImportFromMicrosoftSQLServer">
+   <property name="text">
+    <string>From Microsoft SQL Server</string>
+   </property>
+  </action>
+  <action name="actionDBImportFromPostgreSQL">
+   <property name="text">
+    <string>From PostgreSQL</string>
+   </property>
+  </action>
+  <action name="actionDBCopyCollectionsToDifferentServer">
+   <property name="icon">
+    <iconset resource="Images/resources.qrc">
+     <normaloff>:/Images/copy.png</normaloff>:/Images/copy.png</iconset>
+   </property>
+   <property name="text">
+    <string>Copy Collections to Different Server...</string>
+   </property>
+  </action>
+  <action name="actionDBDrop">
+   <property name="icon">
+    <iconset resource="Images/resources.qrc">
+     <normaloff>:/Images/delete.png</normaloff>:/Images/delete.png</iconset>
+   </property>
+   <property name="text">
+    <string>Drop</string>
+   </property>
+  </action>
+  <action name="actionDBStats">
+   <property name="text">
+    <string>Stats</string>
+   </property>
+  </action>
+  <action name="actionCollectionView">
+   <property name="text">
+    <string>View</string>
+   </property>
+  </action>
+  <action name="actionCollectionFind">
+   <property name="icon">
+    <iconset resource="Images/resources.qrc">
+     <normaloff>:/Images/find.png</normaloff>:/Images/find.png</iconset>
+   </property>
+   <property name="text">
+    <string>Find</string>
+   </property>
+  </action>
+  <action name="actionCollectionFind2">
+   <property name="icon">
+    <iconset resource="Images/resources.qrc">
+     <normaloff>:/Images/find.png</normaloff>:/Images/find.png</iconset>
+   </property>
+   <property name="text">
+    <string>Find 2</string>
+   </property>
+  </action>
+  <action name="actionCollectionUpdate">
+   <property name="text">
+    <string>Update</string>
+   </property>
+  </action>
+  <action name="actionCollectionGroup">
+   <property name="text">
+    <string>Group</string>
+   </property>
+  </action>
+  <action name="actionCollectionMapReduce">
+   <property name="text">
+    <string>Map Reduce</string>
+   </property>
+  </action>
+  <action name="actionCollectionRemove">
+   <property name="icon">
+    <iconset resource="Images/resources.qrc">
+     <normaloff>:/Images/delete.png</normaloff>:/Images/delete.png</iconset>
+   </property>
+   <property name="text">
+    <string>Remove</string>
+   </property>
+  </action>
+  <action name="actionCollectionInsertDocument">
+   <property name="text">
+    <string>Insert Document...</string>
+   </property>
+  </action>
+  <action name="actionCollectionAddIndex">
+   <property name="text">
+    <string>Add Index...</string>
+   </property>
+  </action>
+  <action name="actionCollectionCompact">
+   <property name="text">
+    <string>Compact</string>
+   </property>
+  </action>
+  <action name="actionCollectionDuplicate">
+   <property name="icon">
+    <iconset resource="Images/resources.qrc">
+     <normaloff>:/Images/copy.png</normaloff>:/Images/copy.png</iconset>
+   </property>
+   <property name="text">
+    <string>Duplicate Collection...</string>
+   </property>
+  </action>
+  <action name="actionCollectionCopyToDifferentServer">
+   <property name="icon">
+    <iconset resource="Images/resources.qrc">
+     <normaloff>:/Images/copy.png</normaloff>:/Images/copy.png</iconset>
+   </property>
+   <property name="text">
+    <string>Copy Collection to Different Server...</string>
+   </property>
+  </action>
+  <action name="actionCollectionRemoveAll">
+   <property name="icon">
+    <iconset resource="Images/resources.qrc">
+     <normaloff>:/Images/delete.png</normaloff>:/Images/delete.png</iconset>
+   </property>
+   <property name="text">
+    <string>Remove All</string>
+   </property>
+  </action>
+  <action name="actionCollectionDrop">
+   <property name="icon">
+    <iconset resource="Images/resources.qrc">
+     <normaloff>:/Images/delete.png</normaloff>:/Images/delete.png</iconset>
+   </property>
+   <property name="text">
+    <string>Drop</string>
+   </property>
+  </action>
+  <action name="actionCollectionStats">
+   <property name="text">
+    <string>Stats</string>
+   </property>
+  </action>
+  <action name="actionIndexDrop">
+   <property name="icon">
+    <iconset resource="Images/resources.qrc">
+     <normaloff>:/Images/delete.png</normaloff>:/Images/delete.png</iconset>
+   </property>
+   <property name="text">
+    <string>Drop</string>
+   </property>
+  </action>
+  <action name="actionIndexProperties">
+   <property name="text">
+    <string>Properties</string>
+   </property>
+  </action>
+  <action name="actionJavaScriptEdit">
+   <property name="icon">
+    <iconset resource="Images/resources.qrc">
+     <normaloff>:/Images/editedit.png</normaloff>:/Images/editedit.png</iconset>
+   </property>
+   <property name="text">
+    <string>Edit</string>
+   </property>
+  </action>
+  <action name="actionJavaScriptDrop">
+   <property name="icon">
+    <iconset resource="Images/resources.qrc">
+     <normaloff>:/Images/delete.png</normaloff>:/Images/delete.png</iconset>
+   </property>
+   <property name="text">
+    <string>Drop</string>
+   </property>
+  </action>
+  <action name="actionToolsServerMonitoring">
+   <property name="text">
+    <string>Server Monitoring</string>
+   </property>
+  </action>
+  <action name="actionToolsPreferences">
+   <property name="text">
+    <string>Preferences</string>
+   </property>
+  </action>
+  <action name="actionWindowsClose">
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </action>
+  <action name="actionWindowsCloseAll">
+   <property name="text">
+    <string>Close All</string>
+   </property>
+  </action>
+  <action name="actionHelpAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionOpen">
+   <property name="icon">
+    <iconset resource="Images/resources.qrc">
+     <normaloff>:/Images/fileopen.png</normaloff>:/Images/fileopen.png</iconset>
+   </property>
+   <property name="text">
+    <string>Open</string>
+   </property>
+   <property name="toolTip">
+    <string>Open</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="icon">
+    <iconset resource="Images/resources.qrc">
+     <normaloff>:/Images/filesave.png</normaloff>:/Images/filesave.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save</string>
+   </property>
+   <property name="toolTip">
+    <string>Save</string>
+   </property>
+  </action>
+  <action name="actionSaveAs">
+   <property name="icon">
+    <iconset resource="Images/resources.qrc">
+     <normaloff>:/Images/filesaveas.png</normaloff>:/Images/filesaveas.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save As...</string>
+   </property>
+   <property name="toolTip">
+    <string>Save As...</string>
+   </property>
+  </action>
+  <action name="actionJavaScript">
+   <property name="text">
+    <string>JavaScript</string>
+   </property>
+   <property name="toolTip">
+    <string>JavaScript</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="Images/resources.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>actionFileExit</sender>
+   <signal>triggered()</signal>
+   <receiver>QMongoClient</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>437</x>
+     <y>295</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

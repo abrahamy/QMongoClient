@@ -1,0 +1,15 @@
+<RCC>
+  <qresource prefix="Images">
+    <file>edit.png</file>
+    <file>copy.png</file>
+    <file>filesaveas.png</file>
+    <file>fileopen.png</file>
+    <file>filesave.png</file>
+    <file>add.png</file>
+    <file>delete.png</file>
+    <file>editedit.png</file>
+    <file>find.png</file>
+    <file>mongodb-logo.png</file>
+    <file>quit.png</file>
+  </qresource>
+</RCC>
