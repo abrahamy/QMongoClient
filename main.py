@@ -1,3 +1,5 @@
+from views import qmongoclient
+
 __author__ = 'Abraham Aondowase Yusuf <bb6xt@yahoo.com>'
 
 __all__ = ["QMongoClientApplication",]
@@ -5,16 +7,17 @@ __all__ = ["QMongoClientApplication",]
 import sys
 
 from PySide import QtGui
-import qmongoclient
 
 class QMongoClientApplication(QtGui.QApplication):
 
     def __init__(self):
         super(QMongoClientApplication, self).__init__(sys.argv)
-        self.setOrganizationName("BB6XT Inc")
+        self.setOrganizationName('Sleekbums Inc')
+        self.setOrganizationDomain("bb6xt.herokuapp.com")
+        self.setApplicationName("QMongoClient")
 
-        qMongoClient = qmongoclient.QMongoClient()
-        qMongoClient.show()
+        client = qmongoclient.QMongoClient()
+        client.show()
 
         self.exec_()
 

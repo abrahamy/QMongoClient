@@ -4,8 +4,8 @@ __all__ = ["QMongoClient",]
 
 from PySide import QtCore, QtGui
 
-from ui.ui_qmongoclient import Ui_QMongoClient
-from connectionmanagerdlg import ConnectionManager
+from views.ui.ui_qmongoclient import Ui_QMongoClient
+from views.connectionmanagerdlg import ConnectionManager
 
 class QMongoClient(QtGui.QMainWindow, Ui_QMongoClient):
 

@@ -239,5 +239,3 @@ class Ui_NewConnectionDlg(object):
         self.pushButtonCancel.setText(QtGui.QApplication.translate("NewConnectionDlg", "&Cancel", None, QtGui.QApplication.UnicodeUTF8))
 
 import resources_rc
-import resources_rc
-import resources_rc

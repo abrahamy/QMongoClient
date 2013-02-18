@@ -3,8 +3,10 @@ __author__ = 'Abraham Aondowase Yusuf <bb6xt@yahoo.com>'
 __all__ = ["NewConnection",]
 
 from PySide import QtCore, QtGui
+from pymongo import MongoClient
 
-from ui.ui_newconnectiondlg import Ui_NewConnectionDlg
+from views.ui.ui_newconnectiondlg import Ui_NewConnectionDlg
+from models import config
 
 class NewConnection(QtGui.QDialog, Ui_NewConnectionDlg):
 
@@ -13,17 +15,33 @@ class NewConnection(QtGui.QDialog, Ui_NewConnectionDlg):
         self.setupUi(self)
         self.retranslateUi(self)
 
+        self.lineEditPort.setValidator(QtGui.QIntValidator())
+
     @QtCore.Slot(result=None)
     def on_pushButtonOpenKeyFile_clicked(self):
         keyFile = QtGui.QFileDialog.getOpenFileName(self, QtCore.QDir().homePath())
 
     @QtCore.Slot(result=None)
     def on_pushButtonTestConnection_clicked(self):
-        pass
+        try:
+            params = {'host': self.lineEditServer.text(),
+                           'port': int(self.lineEditPort.text())}
+            client = MongoClient(**params)
+            msg = 'Successful!'
+        except Exception as e:
+            msg = e.message
+
+        QtGui.QMessageBox.information(self, 'Connection Test', msg)
 
     @QtCore.Slot(result=None)
     def on_pushButtonSave_clicked(self):
-        pass
+        db_connection = config.DBConnection(self.lineEditConnectionName.text(), server=self.lineEditServer.text(),
+            port=self.lineEditPort.text(),user=self.lineEditUsername.text(), passwd=self.lineEditPassword.text(),
+            dbnames=self.lineEditDatabases.text().split()
+        )
+
+        config.ConnectionStore().push(db_connection)
+        self.accept()
 
     @QtCore.Slot(result=None)
     def on_lineEditConnectionName_textChanged(self):
